@@ -1,4 +1,4 @@
-## Sam's Car Dealership Voice Agent
+## Sam's Car Dealership Test Agent
 
 Sam's Car Dealership offers a range of vehicle services, including maintenance and repairs for customers, while also providing leasing options and selling both new and used cars. Their agent can schedule appointments and collect customer information.
 
@@ -9,9 +9,9 @@ Sam's Car Dealership offers a range of vehicle services, including maintenance a
 | Tire Rotations |              | 
 
 
-In this example, we will build a test agent to evaluate how well the virtual voice agent schedules appointments for its customers. 
+In this example, we will build a Hamming test agent to evaluate how well the virtual voice agent schedules appointments for its customers. 
 
-### Key Components to Build a Test Agent
+### Key Components to Build a Hamming Test Agent
 
 <CardGroup>
   
@@ -19,27 +19,25 @@ In this example, we will build a test agent to evaluate how well the virtual voi
   title="Datasets" 
   icon="square-1">
   Datasets are a collection of customer phone calls/scenarios that you want to test. You can upload an existing dataset in 
-   CSV or JSON format or create a new 
-  dataset using JSON.
+   CSV or JSON format or create a new dataset using JSON.
   </Card>
 
   <Card 
   title="Prompts" 
   icon="square-2">
- To test a voice agent you need to create prompts defining the success criteria of the voice agent. 
- This prompt will be used when evaluating the calls of your agent.
+ To test your virtual voice agent you need to create prompts for the Hamming test agent defining the task and success criteria. The Hamming test agent will follow these instructions during the evaluation.
   </Card>
 
   <Card 
   title="Scorer" 
   icon="square-3">
-  The scorer is a tool used to assess the performance of a voice agent. The scorer evaluates the agent's responses by comparing them to the expected outputs defined in the prompt.
+  The scorer is a tool used to assess the performance of the virtual voice agent. The scorer evaluates the agent's responses by comparing them to the expected outputs defined in the prompt.
   </Card>
 
 <Card 
   title="Voice Agents" 
   icon="square-4">
-  To test your voice agent you can run mutliple calls against your agent and see how well it performs.
+  To test your virtual voice agent you can run mulitple calls with your Hamming test agent against your virtual voice agent to see how well it performs and schedules appointments.
   </Card>
 
 </CardGroup>
