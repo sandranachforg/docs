@@ -13,7 +13,7 @@ In this example, we will implement a test agent for a car dealership service. Th
 
 
 <Steps>
-  <Step title="1. Create A Dataset">
+  <Step title= "1. Create A Dataset">
     
     1. Visit [app.hamming.ai/datasets](https://app.hamming.ai/datasets?page=1)
     2. Click on **+Add New Dataset** . You can either upload an existing dataset or create a new one using the JSON 
@@ -26,20 +26,32 @@ In this example, we will implement a test agent for a car dealership service. Th
 
 **Pro Tip**: Hamming accepts CSV & JSON files up to 10MB. All files should have a header.
 
-
 </Tip>
 
 <iframe src="https://drive.google.com/file/d/1NgsQL6KXKV3_Dh0f2JbtdW8_9iMSNCuA/preview" width="100%" height="auto" allowfullscreen></iframe>
 
-
   </Step>
 
-
  <Step title="2. Create A Prompt" >
-    Visit [app.hamming.ai/prompts](http://app.hamming.ai/prompts) and create a prompt. 
-    The prompt should be clear and concise instructions for the test agent. You can find a sample here. 
-    
+    1. Visit [app.hamming.ai/prompts](http://app.hamming.ai/prompts) and create a prompt.
+       The prompt should be clear and concise instructions for the test agent. Find a sample here. 
+    2. Click on **+Add Prompt**
+    3. Enter a prompt name and description (optional)
+    4. Select the model that you want to use to evaluate the agent
+    5. Add a system prompt. E.g. You are a friendly receptionist at a car dealership.
+    6. Add a user prompt. Make sure that your user prompt has two main components: [TASK] & [CRITERIA]  
 
+**[TASK]** This describes the task to the test agent e.g. Analzye the call between a receptionist and a customer 
+**[CRITERIA]** This defines what makes the call successful. e.g. Was the receptionist able to schedule an appointment? 1 - Yes; 0 - No;
+
+    7. Save the prompt and deploy to production.
+
+<Tip>
+
+**Pro Tip**: We recommend using gpt-4o to obtain the best results. 
+
+</Tip>
+    
 <iframe src="https://drive.google.com/file/d/15uCzThN6qKbA52YQ1w6qnSV7Hh_suMOo/preview" width="100%" height="auto" allowfullscreen></iframe>
  
 
