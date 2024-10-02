@@ -66,6 +66,39 @@ In this example, we will build a Hamming test agent **taking on the role of the 
     5. Add a system prompt. E.g. You are a friendly receptionist at a car dealership
     6. Add a user prompt. Make sure that your user prompt has two main components: [TASK] & [CRITERIA]  
 
+
+<Accordion icon="message-bot" title="User Prompt Example">
+  ```
+[TASK]
+You are given the <transcript> of a phone call between a receptionist (HUMAN) and a customer (BOT).
+Your task is to classify the transcript of the phone call, given the [CRITERIA]. 
+
+[CRITERIA]
+Was the receptionist (HUMAN) able to schedule an appointment for the customer? 1 - Yes; 0 - No;
+If there is not enough information in the transcript to determine the correct classification, label as 2 - N/A;
+
+Assign one of the labels above and provide reasoning for why the call should be assigned that label.
+
+[INPUT]
+<transcript>
+{{transcript}}
+</transcript>
+
+[OUTPUT]
+<score>
+<reason>
+Find evidence in the transcript to prove whether the interviewer succeeded or failed to meet the criteria.
+Provide a detailed, step-by-step explanation for assigning a label, based on the available evidence or the absence of it.
+</reason>
+<value>
+0 | 1 | 2
+</value>
+
+```
+
+</Accordion>
+
+
     **[TASK]** This describes the task to Hamming's test agent _e.g. Analzye the call between a receptionist and a customer_
     **[CRITERIA]** This defines what makes the call successful. _e.g. Was the virtual voice agent able to schedule an appointment?      1 - Yes; 0 - No;_
 
