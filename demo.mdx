@@ -63,9 +63,9 @@ In this example, we will build a Hamming test agent **taking on the role of the 
 
   </Step>
 
- <Step title="Create A Prompt" >
-    1. Visit [app.hamming.ai/prompts](http://app.hamming.ai/prompts) to create a prompt.
-       The prompt should be clear and concise instructions for the Hamming test agent. 
+ <Step title="Create A Scoring Prompt (aka Observer)" >
+    1. Visit [app.hamming.ai/prompts](http://app.hamming.ai/prompts) to create a scoring prompt.
+       The prompt should contain concise instructions for the Observer.
     2. Click on **+Add Prompt**
     3. Enter a prompt name and description (optional)
     4. Select the model that you want to use to evaluate your virtual voice agent
@@ -90,17 +90,17 @@ In this example, we will build a Hamming test agent **taking on the role of the 
 
 <Step title="Create A Scorer">
 
-    1. Visit [app.hamming.ai/evals](http://app.hamming.ai/evals) to create a scorer
+    1. Visit [app.hamming.ai/evals](http://app.hamming.ai/evals) to create a scorer, which simply acts as a wrapper for the scoring prompt
     2. Click on **+Add Scorer**
     3. Enter a prompt name and description (optional)
     4. Add values and labels which will be used to display the results of the test
-    5. Select the prompt you created in Step 2 and set the prompt label to **production**
+    5. Select the scoring prompt you created in Step 2 and set the prompt label to **production**
     6. Change the Variable Mappings field to **Output** and enter **transcript** in the field on the right. This will pull 
        the data from the dataset you uploaded in Step 1
 
 <Tip>
 
-**Pro Tip**: Ensure that the values in the scorer align with the labels from your prompt. For example, if the value "0" represents "No" in your prompt, make sure the scorer also labels "0" as "No."
+**Pro Tip**: Ensure that the values in the scorer align with the labels from your scoring prompt. For example, if the value "0" represents "No" in your prompt, make sure the scorer also labels "0" as "No."
 
 </Tip>
 
@@ -113,9 +113,10 @@ In this example, we will build a Hamming test agent **taking on the role of the 
     1. Visit [app.hamming.ai/voice-agents](http://app.hamming.ai/voice-agents) to set up a Hamming test agent (customer)
     2. Click on **+Add Voice Agent**
     3. Enter a name 
-    4. Select **Function** from the Scoring dropdown
+    4. Select **Function** from the Scoring dropdown and select the scorer you created in the previous step.
     5. Configure a prompt for the Hamming test agent with input variables from your dataset, allowing it to simulate a 
-       variety of customer situations. This prompt should be instructions for the customer calling the dealership. 
+       variety of customer situations. This prompt should be instructions for the Hamming test agent calling the 
+       dealership. 
     6. Select the dataset you uploaded in Step 1.
     7. Click on Run and enter the phone number of your virtual voice agent. You can set up a phone number
        on Retell AI. 
