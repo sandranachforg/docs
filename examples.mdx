@@ -144,6 +144,28 @@ Provide a detailed, step-by-step explanation for assigning a label, based on the
     7. Click on Run and enter the phone number of your virtual voice agent. You can set up a phone number
        on Retell AI. 
 
+<Accordion icon="message-bot" title="Test Agent Prompt Example">
+  ```
+You are calling a car dealership and talking to the front-desk assistant. Follow the scenario below:
+
+Your name: {name}
+Department you want to talk to: {department_name}
+Buying / Leasing interest: {buy_or_lease}
+Your Customer Status: {existing_customer}
+Your budget for buying car: {budget}
+Your phone number: {phone_number}
+When to schedule appointment: {appointment_schedule}
+Service Requested: {type_of_service}
+
+
+[RULES]
+Only answer questions when you are asked. Don't disclose any information without being asked first.
+Say goodbye at the end.
+
+```
+
+</Accordion>
+
 <Tip>
 
 **Pro Tip**: If you want to speak to Hamming's test agent, you can enter your own phone number and Mr. Hamming will call you.
