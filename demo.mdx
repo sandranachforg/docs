@@ -28,16 +28,24 @@ In this example, we will implement a test agent for a car dealership service. Th
   </Step>
 
 
- <Step title="2. Step">
-    <Accordion title = "Create A Dataset">
-    Visit [app.hamming.ai/datasets](https://app.hamming.ai/datasets?page=1) and create a dataset. This data should contain all phone calls you'd like to use in your test. Since each business is unique, you can upload as many columns as needed and then map them as input columns shown in the next steps.
+ <Step title="2. Step" >
+    <Accordion title = "Create A Promppt">
+    Visit [app.hamming.ai/prompts](http://app.hamming.ai/prompts) and create a prompt. 
+    The prompt should be clear and concise instructions for the test agent. You can find a sample here. 
+     
 
     </Accordion>
   </Step>
 
 <Step title="3. Step">
-    <Accordion title = "Create A Dataset">
-    Visit [app.hamming.ai/datasets](https://app.hamming.ai/datasets?page=1) and create a dataset. This data should contain all phone calls you'd like to use in your test. Since each business is unique, you can upload as many columns as needed and then map them as input columns shown in the next steps.
+    <Accordion title = "Create A Scorer">
+    Visit [app.hamming.ai/evals](http://app.hamming.ai/evals) and create a scorer. 
+
+<Tip>
+
+**Pro Tip**: Ensure that the values in the scorer align with the labels from your prompt. For example, if the value "0" represents "No" in your prompt,make sure the scorer also labels "0" as "No."
+
+</Tip>
 
     </Accordion>
   </Step>
