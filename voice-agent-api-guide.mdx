@@ -9,83 +9,60 @@
 
 </Warning>
 
-### Components of the Voice Test Agent 
+### Things You Need to Succeed
 
-<CardGroup>
-  
-  <Card 
-  title="Datasets" 
-  icon="square-1">
-  A dataset is a collection of customer phone call scenarios that you want Hamming's test agent to simulate. You can upload an existing dataset in 
-   CSV or JSON format or create a new one from the UI.
-  </Card>
+In order to set up and run a Hamming voice agent programmatically, you need to have your dataset ID and agent ID ready.
 
-  <Card 
-  title="Scoring Prompts" 
-  icon="square-2">
- To evaluate your virtual voice agent you need to create prompts that define the success criteria for each call. This is critical to ensure your virtual voice agent is evaluated only on the things that matter to your business.
-  </Card>
 
-  <Card 
-  title="Scorer" 
-  icon="square-3">
-  The scorer wraps a scoring prompt and adds configuration knobs to control how your voice agent is evaluated.
-  </Card>
+<Accordion icon="message-bot" title="Finding your Dataset ID">
 
-<Card 
-  title="Hamming Test Agent" 
-  icon="square-4">
-  To test your virtual voice agent, the Hamming test agent will simulate multiple interactions using the scenarios provided in your dataset. Remember, Hamming's test agent **takes on the role of your customers!**
-  </Card>
 
-</CardGroup>
+</Accordion>
 
-### Step-by-Step Tutorial
+
+<Accordion icon="message-bot" title="Finding your Agent ID">
+
+To find your agent ID follow these steps: 
+
+</Accordion>
+
 
 
 <Steps>
 
-<Step title= "Create A Dataset">
+<Step title= "Start Agent Test Run">
 
 
 <Tip>
 
-**Pro Tip**: Hamming accepts CSV & JSON files up to 10MB.
+**Important**: This will start a set of calls in parallel - we call it a Voice Experiment.
 
 </Tip>
-    
-    1. Visit [app.hamming.ai/datasets](https://app.hamming.ai/datasets?page=1) to create a dataset.
-    2. Click on **+Add New Dataset**. You can either upload an existing dataset or create an empty dataset and then use the JSON editor to build one.
-       The dataset should contain **all phone calls scenarios** you'd like Hamming's test agent to simulate. 
-    3. Enter a dataset name and description.
-    4. Select the input columns. The input columns are the data points you'd like the Hamming test agent to reference. 
 
+```
+POST https://app.hamming.ai/api/rest/voice-experiment/{agent_id}
 
+Request Body:
+{ "to_number": "+12063991234", "dataset_id": "{dataset_id}"}
 
-<iframe src="https://www.youtube.com/embed/Sw1GgRYKUG4" width="500" height="280" frameborder="0" allowfullscreen></iframe>
+Response:
+{ "voice_experiment_id" }```
+
 
   </Step>
 
- <Step title="Create A Scoring Prompt" >
+ <Step title="Get Voice Experiment" >
 
-<Tip>
+You can use this endpoint to poll for the Voice Experiment status.
 
-**Pro Tip**: We recommend using gpt-4o with temperature 0 to get the best results.
-
-</Tip>
-
-    1. Visit [app.hamming.ai/prompts](http://app.hamming.ai/prompts) to create a scoring prompt.
-       The prompt should contain concise instructions for the scorer.
-    2. Click on **+Add Prompt**.
-    3. Enter a prompt name and description.
-    4. Select the model that you want to use to evaluate your virtual voice agent.
-    5. Add a system prompt.
-
-<Accordion icon="message-bot" title="System Prompt">
 ```
-You are an expert data analyst, with 30 years of experience analyzing phone call transcripts. You have a great attention to details.
+GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}
+
+Response:
+{ "id": "voice_experiment_id", "status": "FINISHED" }
 ```
-</Accordion>
+
+
 
     6. Add a user prompt.
 
