@@ -31,5 +31,58 @@ and select the name of the voice agent. Your Agent ID is located in the URL imme
 </Accordion>
 
 
+<Steps>
+
+<Step title= "1. Start Agent Test Run">
+
+This will start a set of calls in parallel - we call it a Voice Experiment.
+```
+POST https://app.hamming.ai/api/rest/voice-experiment/{agent_id}
+
+Request Body:
+{ "to_number": "+12063991234", "dataset_id": "{dataset_id}"}
+
+Response:
+{ "voice_experiment_id" }
+
+```
+
+
+  </Step>
+
+ <Step title="2. Get Voice Experiment" >
+
+You can use this endpoint to poll for the Voice Experiment status.
+
+  ```
+GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}
+
+Response:
+{ "id": "voice_experiment_id", "status": "FINISHED" }
+
+```
+ 
+  </Step>
+
+<Step title="3. Get Voice Experiment Calls">
+
+Once the experiment is FINISHED, you can query the score results for the experiment.
+
+```
+GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}/calls
+
+Response:
+{
+    "calls": [
+       // Array of calls that were run as part of the voice experiment
+       // Each call object will include the scoring status.
+    ]
+}
+```
+
+  </Step>
+
+
+</Steps>
 
 
