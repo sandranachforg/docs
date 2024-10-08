@@ -42,7 +42,8 @@ For example, **cm1rb0m3600ybxzwm69d7fvst** represents the Agent ID.
 
 <Step title= "1. Start Agent Test Run">
 
-This will start a set of calls in parallel - we call it a Voice Experiment.
+This initiates a series of parallel calls, referred to as a **Voice Experiment**.
+
 ```
 POST https://app.hamming.ai/api/rest/voice-experiment/{agent_id}
 
@@ -59,7 +60,8 @@ Response:
 
  <Step title="2. Get Voice Experiment" >
 
-You can use this endpoint to poll for the Voice Experiment status.
+This endpoint can be used to check the status of the Voice Experiment.
+
 
   ```
 GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}
@@ -73,7 +75,7 @@ Response:
 
 <Step title="3. Get Voice Experiment Calls">
 
-Once the experiment is FINISHED, you can query the score results for the experiment.
+After the experiment is **FINISHED**, you can retrieve the score results for the experiment.
 
 ```
 GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}/calls
