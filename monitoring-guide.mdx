@@ -73,6 +73,72 @@ Go to https://dashboard.retellai.com/agents and select your agent. Look for the 
 
   </Step>
 
+<Step title="4. Create typescript project to run file with tsx">
+
+Next, create an index.ts file inside your project folder.
+
+```
+import dotenv from "dotenv";
+import { envsafe, str } from "envsafe";
+import express from "express";
+import { CallProvider, Hamming } from "@hamming/hamming-sdk";
+
+
+dotenv.config();
+
+
+const app = express();
+app.use(express.json());
+
+
+export const env = envsafe({
+ HAMMING_API_KEY: str(),
+});
+
+
+const hamming = new Hamming({
+ apiKey: env.HAMMING_API_KEY,
+});
+
+
+hamming.monitoring.start();
+
+
+app.post("/retell-webhook", (req, res) => {
+ hamming.monitoring.callEvent(CallProvider.Retell, req.body);
+ res.sendStatus(200);
+});
+
+
+app.listen(3010, () => {
+ console.log("Server is running on port 3010");
+});
+
+
+```
+
+  </Step>
+
+
+<Step title="5. Set up your .env file" >
+
+
+Set up a Hamming API Key by going to [hamming.ai/settings](https://app.hamming.ai/settings) and selecting Create a new secret key at the top. Then, add the API key to your .env file as shown in the code snippet below.
+
+```
+HAMMING_API_KEY=your_hamming_api_key
+
+```
+
+Next run the following command.
+
+```
+npm run dev
+
+```
+
+  </Step>
+
 
 </Steps>
 
