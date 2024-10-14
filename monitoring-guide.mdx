@@ -1,11 +1,39 @@
-
-
 ### Set up Retell Voice Agent Monitoring
+
+### Components Needed Before Setup
+
+<CardGroup>
+  
+  <Card 
+  title="Ngrok Account" 
+  icon="square-1">
+  Before you get started, make sure you have installed ngrok and set up an account.
+  </Card>
+
+  <Card 
+  title="Retell AI Agent" 
+  icon="square-2">
+ To monitor your virtual voice agent you need to first set up an agent on Retell AI. 
+  </Card>
+
+  <Card 
+  title="Scorer" 
+  icon="square-3">
+  The scorer wraps a scoring prompt and adds configuration knobs to control how your voice agent is evaluated.
+  </Card>
+
+<Card 
+  title="Hamming Test Agent" 
+  icon="square-4">
+  To test your virtual voice agent, the Hamming test agent will simulate multiple interactions using the scenarios provided in your dataset. Remember, Hamming's test agent **takes on the role of your customers!**
+  </Card>
+
+</CardGroup>
 
 
 <Warning>
 
-**Important**: Before running your Hamming test agent using the API, ensure your test agent is properly set up. For a detailed, step-by-step guide on creating a dataset and configuring the prompt, scorer, and voice agent, refer to [this guide](https://docs.hamming.ai/guides/voice-agent).
+**Important**: We currently only support monitoring for Retell AI Agents.
 
 </Warning>
 
