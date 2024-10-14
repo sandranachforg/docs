@@ -65,54 +65,38 @@ For example, **cm1rb0m3600ybxzwm69d7fvst** represents the Agent ID.
 
 <Steps>
 
-<Step title= "1. Initiate Agent Test Run">
+<Step title= "1. Install and Authenticate ngrok">
 
-This initiates a series of parallel calls, referred to as a **Voice Experiment**.
-
-```
-POST https://app.hamming.ai/api/rest/voice-experiment/{agent_id}
-
-Request Body:
-{ "to_number": "+12063991234", "dataset_id": "{dataset_id}"}
-
-Response:
-{ "voice_experiment_id" }
+If you haven't already, visit https://ngrok.com/download to install ngrok and generate your authtoken. Then, run the following command, replacing YOUR_AUTHTOKEN with the token you created.
 
 ```
+ngrok config add-authtoken YOUR_AUTHTOKEN
 
+```
 
   </Step>
 
- <Step title="2. Obtain Voice Experiment Status" >
+ <Step title="2. Run ngrok" >
 
-This endpoint can be used to check the status of the Voice Experiment.
-
+To run ngrok, run the following command:
 
   ```
-GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}
-
-Response:
-{ "id": "voice_experiment_id", "status": "FINISHED" }
+ngrok http 3010
 
 ```
  
   </Step>
 
-<Step title="3. Obtain Voice Experiment Calls">
+<Step title="3. Set up Retell AI Webhook">
 
-After the experiment is **FINISHED**, you can retrieve the score results for the experiment.
+Once you complete step 2, a window should appear with a forwarding link. Copy the link and add **/retell-webhook** at the end of the link. Your final link should look something like this: 
 
 ```
-GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}/calls
+https://688ee840-00505-39395.ngrok-free.app/retell-webhook
 
-Response:
-{
-    "calls": [
-       // Array of calls that were run as part of the voice experiment
-       // Each call object will include the scoring status.
-    ]
-}
 ```
+
+Head to https://dashboard.retellai.com/agents and select your agent. You should see a tab called "Webhook Settings". Now, paste the link you created into 'Agent Level Webhook URL' field.
 
   </Step>
 
