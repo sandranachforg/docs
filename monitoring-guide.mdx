@@ -36,7 +36,7 @@ To monitor your virtual voice agent, ensure that your Retell or VAPI AI Voice Ag
 
 ### Step-by-Step Tutorial
 
-<Accordion icon="phone" title="VAPI Agent Monitoring Setup" >
+<Accordion icon="phone" title="Monitoring Setup for Retell AI Agents" >
 
 
 <Steps>
@@ -164,3 +164,130 @@ Once both ngrok and your application are running, monitoring will log all inboun
 
 </Accordion>
 
+<Accordion icon="phone" title="Monitoring Setup for VAPI AI Agents" >
+
+
+<Steps>
+
+<Step title= "Set up ngrok">
+
+If you haven't already, visit https://ngrok.com/download to install ngrok and generate your authtoken. Then, run the following command, replacing YOUR_AUTHTOKEN with the token you created.
+
+```
+ngrok config add-authtoken YOUR_AUTHTOKEN
+
+```
+
+  </Step>
+
+ <Step title="Run ngrok" >
+
+To run ngrok, use the following command:
+
+  ```
+ngrok http 3010
+
+```
+ 
+  </Step>
+
+<Step title="Set up VAPI AI Webhook">
+
+After completing step 2, a window will display a **Forwarding Link**. Copy the link and append **/retell-webhook** to the end. Your final link should look similar to this:
+
+```
+https://688ee840-00505-39395.ngrok-free.app/retell-webhook
+
+```
+
+
+<Accordion icon="terminal" title="Finding Your Forwarding Link">
+<img src="./images/ngrok-setup-screen.png" alt="Dataset" style={{ width: "400", height: "auto",borderRadius: "10px" }} />
+</Accordion>
+
+
+
+Go to https://dashboard.retellai.com/agents and select your agent. Look for the **Webhook Settings** tab, and paste the link you created into the **Agent Level Webhook URL** field.
+
+  </Step>
+
+<Step title="Create typescript project to run file with tsx">
+
+Next, create an index.ts file inside your project folder.
+
+```
+import dotenv from "dotenv";
+import { envsafe, str } from "envsafe";
+import express from "express";
+import { CallProvider, Hamming } from "@hamming/hamming-sdk";
+
+
+dotenv.config();
+
+
+const app = express();
+app.use(express.json());
+
+
+export const env = envsafe({
+ HAMMING_API_KEY: str(),
+});
+
+
+const hamming = new Hamming({
+ apiKey: env.HAMMING_API_KEY,
+});
+
+
+hamming.monitoring.start();
+
+
+app.post("/retell-webhook", (req, res) => {
+ hamming.monitoring.callEvent(CallProvider.Retell, req.body);
+ res.sendStatus(200);
+});
+
+
+app.listen(3010, () => {
+ console.log("Server is running on port 3010");
+});
+
+
+```
+
+  </Step>
+
+
+<Step title="Set up your .env file" >
+
+
+Set up a Hamming API Key by going to [hamming.ai/settings](https://app.hamming.ai/settings) and selecting Create a new secret key at the top. Then, add the API key to your .env file as shown in the code snippet below.
+
+```
+HAMMING_API_KEY=your_hamming_api_key
+
+```
+
+Next run the following command.
+
+```
+npm run dev
+
+```
+
+  </Step>
+
+<Step title="Track Monitoring Page" >
+
+
+Once both ngrok and your application are running, monitoring will log all inbound and outbound phone calls and generate Hume scores, providing valuable insights into the performance and sentiment of the calls.
+
+<Accordion icon="phone" title="Monitoring Page">
+<img src="./images/monitoring-screen.png" alt="Dataset" style={{ width: "400", height: "auto",borderRadius: "10px" }} />
+</Accordion>
+
+  </Step>
+
+</Steps>
+
+</Accordion>
