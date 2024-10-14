@@ -1,0 +1,97 @@
+
+
+### Set up Retell Voice Agent Monitoring
+
+
+<Warning>
+
+**Important**: Before running your Hamming test agent using the API, ensure your test agent is properly set up. For a detailed, step-by-step guide on creating a dataset and configuring the prompt, scorer, and voice agent, refer to [this guide](https://docs.hamming.ai/guides/voice-agent).
+
+</Warning>
+
+### Before You Get Started
+
+In order to set up and run a Hamming voice agent programmatically, you need to have your **Dataset ID** and **Agent ID** ready.
+
+
+<Accordion icon="message-bot" title="Finding Your Dataset ID">
+
+To locate your dataset ID, visit [hamming.ai/datasets](https://app.hamming.ai/datasets?page=1)
+On the right side of the dataset, select "Copy ID" to retrieve your dataset ID.
+
+<img src="./images/dataset-id-day.png" alt="Dataset" style={{ width: "400", height: "auto",borderRadius: "10px" }} />
+
+</Accordion>
+
+
+<Accordion icon="message-bot" title="Finding Your Agent ID">
+
+To find your Agent ID, go to [hamming.ai/voice-agents](https://app.hamming.ai/voice-agents)
+and select the name of the voice agent. Your Agent ID is located in the URL immediately following "voice-agents/".
+
+<img src="./images/agent-id-day.png" alt="Agent" style={{ width: "400", height: "auto" , borderRadius: "10px" }} />
+
+For example, **cm1rb0m3600ybxzwm69d7fvst** represents the Agent ID.
+
+
+</Accordion>
+
+### Step-by-Step Tutorial
+
+<Steps>
+
+<Step title= "1. Initiate Agent Test Run">
+
+This initiates a series of parallel calls, referred to as a **Voice Experiment**.
+
+```
+POST https://app.hamming.ai/api/rest/voice-experiment/{agent_id}
+
+Request Body:
+{ "to_number": "+12063991234", "dataset_id": "{dataset_id}"}
+
+Response:
+{ "voice_experiment_id" }
+
+```
+
+
+  </Step>
+
+ <Step title="2. Obtain Voice Experiment Status" >
+
+This endpoint can be used to check the status of the Voice Experiment.
+
+
+  ```
+GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}
+
+Response:
+{ "id": "voice_experiment_id", "status": "FINISHED" }
+
+```
+ 
+  </Step>
+
+<Step title="3. Obtain Voice Experiment Calls">
+
+After the experiment is **FINISHED**, you can retrieve the score results for the experiment.
+
+```
+GET https://app.hamming.ai/api/rest/voice-experiment/{voice_experiment_id}/calls
+
+Response:
+{
+    "calls": [
+       // Array of calls that were run as part of the voice experiment
+       // Each call object will include the scoring status.
+    ]
+}
+```
+
+  </Step>
+
+
+</Steps>
+
+
