@@ -56,7 +56,8 @@
         "quickstart",
         "documentation",
         "examples",
-        "Voice-Agent-API-Guide"
+        "Voice-Agent-API-Guide",
+        "monitoring-guide"
       ]
     },
     {
