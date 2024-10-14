@@ -38,7 +38,7 @@ To monitor your virtual voice agent, ensure that your Retell AI Voice Agent is c
 
 <Steps>
 
-<Step title= "1. Install and Authenticate ngrok">
+<Step title= "Install and Authenticate ngrok">
 
 If you haven't already, visit https://ngrok.com/download to install ngrok and generate your authtoken. Then, run the following command, replacing YOUR_AUTHTOKEN with the token you created.
 
@@ -49,7 +49,7 @@ ngrok config add-authtoken YOUR_AUTHTOKEN
 
   </Step>
 
- <Step title="2. Run ngrok" >
+ <Step title="Run ngrok" >
 
 To run ngrok, run the following command:
 
@@ -60,7 +60,7 @@ ngrok http 3010
  
   </Step>
 
-<Step title="3. Set up Retell AI Webhook">
+<Step title="Set up Retell AI Webhook">
 
 After completing step 2, a window will display a forwarding link. Copy the link and append **/retell-webhook** to the end. Your final link should look similar to this:
 
@@ -73,7 +73,7 @@ Go to https://dashboard.retellai.com/agents and select your agent. Look for the 
 
   </Step>
 
-<Step title="4. Create typescript project to run file with tsx">
+<Step title="Create typescript project to run file with tsx">
 
 Next, create an index.ts file inside your project folder.
 
@@ -120,7 +120,7 @@ app.listen(3010, () => {
   </Step>
 
 
-<Step title="5. Set up your .env file" >
+<Step title="Set up your .env file" >
 
 
 Set up a Hamming API Key by going to [hamming.ai/settings](https://app.hamming.ai/settings) and selecting Create a new secret key at the top. Then, add the API key to your .env file as shown in the code snippet below.
@@ -139,7 +139,7 @@ npm run dev
 
   </Step>
 
-<Step title="6. Track Monitoring Page" >
+<Step title="Track Monitoring Page" >
 
 
 Once you have both ngrok and your file running, monitoring will log all your inbound and outbound phone calls and generate scoring. 
