@@ -177,10 +177,10 @@ ngrok http 3010
 
 <Step title="Set up VAPI AI Webhook">
 
-After completing step 2, a window will display a **Forwarding Link**. Copy the link and append **/retell-webhook** to the end. Your final link should look similar to this:
+After completing step 2, a window will display a **Forwarding Link**. Copy the link and append **/vapi-webhook** to the end. Your final link should look similar to this:
 
 ```
-https://688ee840-00505-39395.ngrok-free.app/retell-webhook
+https://688ee840-00505-39395.ngrok-free.app/vapi-webhook
 
 ```
 
@@ -191,7 +191,7 @@ https://688ee840-00505-39395.ngrok-free.app/retell-webhook
 
 
 
-Go to https://dashboard.retellai.com/agents and select your agent. Look for the **Webhook Settings** tab, and paste the link you created into the **Agent Level Webhook URL** field.
+Go to https://dashboard.vapi.ai/assistants and select your agent. Look for the **Advanced** in the dropdown, and paste the link you created into the **Server URL** field.
 
   </Step>
 
@@ -226,8 +226,8 @@ const hamming = new Hamming({
 hamming.monitoring.start();
 
 
-app.post("/retell-webhook", (req, res) => {
- hamming.monitoring.callEvent(CallProvider.Retell, req.body);
+app.post("/vapi-webhook", (req, res) => {
+ hamming.monitoring.callEvent(CallProvider.VAPI, req.body);
  res.sendStatus(200);
 });
 
