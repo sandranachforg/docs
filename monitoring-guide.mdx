@@ -27,23 +27,19 @@ If you use VAPI to run voice agents, follow this tutorial.
 
 ## Retell Tutorial
 
-<Warning> 
+<Note> 
 
 Ensure that you have installed and authorized ngrok before continuing. To learn more visit https://ngrok.com.
 
-</Warning>
+</Note>
 
 <Steps>
 
 
- <Step title="Initiate ngrok" >
-
-
-Run the following command to fire up ngrok.
+ <Step title="Start ngrok" >
 
   ```
 ngrok http 3010
-
 ```
  
   </Step>
@@ -54,7 +50,6 @@ After completing Step 1, a window will display a **Forwarding Link**. Copy the l
 
 ```
 https://688ee840-00505-39395.ngrok-free.app/retell-webhook
-
 ```
 
 
@@ -111,8 +106,6 @@ app.post("/retell-webhook", (req, res) => {
 app.listen(3010, () => {
  console.log("Server is running on port 3010");
 });
-
-
 ```
 
   </Step>
@@ -125,14 +118,12 @@ Set up a Hamming API Key by going to [hamming.ai/settings](https://app.hamming.a
 
 ```
 HAMMING_API_KEY=your_hamming_api_key
-
 ```
 
 Next run the following command.
 
 ```
 npm run dev
-
 ```
 
   </Step>
@@ -152,25 +143,20 @@ Once both ngrok and your application are running, monitoring will log all inboun
 
 ## VAPI Tutorial
 
-<Warning> 
+<Note> 
 
 Ensure that you have installed and authorized ngrok before continuing. To learn more visit https://ngrok.com.
 
-</Warning>
+</Note>
 
 <Steps>
 
 
 
- <Step title="Initiate ngrok" >
-
-
-
-Run the following command to fire up ngrok.
+ <Step title="Start ngrok" >
 
   ```
 ngrok http 3010
-
 ```
  
   </Step>
@@ -181,7 +167,6 @@ After completing step 2, a window will display a **Forwarding Link**. Copy the l
 
 ```
 https://688ee840-00505-39395.ngrok-free.app/vapi-webhook
-
 ```
 
 
@@ -237,8 +222,6 @@ app.post("/vapi-webhook", (req, res) => {
 app.listen(3010, () => {
  console.log("Server is running on port 3010");
 });
-
-
 ```
 
   </Step>
@@ -258,7 +241,6 @@ Next run the following command.
 
 ```
 npm run dev
-
 ```
 
   </Step>
