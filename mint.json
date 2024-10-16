@@ -57,7 +57,8 @@
         "documentation",
         "examples",
         "Voice-Agent-API-Guide",
-        "monitoring-guide"
+        "monitoring-guide",
+        "github-actions-integration"
       ]
     },
     {
