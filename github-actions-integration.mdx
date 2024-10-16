@@ -64,7 +64,7 @@ Your final variables and secret setup should look like this:
 </div>
 
 
-<Accordion icon="terminal" title="Finding Secrets and Variables on Github">
+<Accordion icon="magnifying-glass" title="Finding Secrets and Variables on Github">
 <div style={{ display: "flex", justifyContent: "space-between" }}>
 <img src="./images/security-screen.png" alt="security-screen" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
 <img src="./images/actions-secret-and-variables-screen.png" alt="actions-security-screen" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
@@ -74,47 +74,11 @@ Your final variables and secret setup should look like this:
 
   </Step>
 
-<Step title="Create a Node.js server that handles the webhook request">
+<Step title="Make a change to your repo and push to your main branch">
 
-This is the content of the index.ts file:
+To test if your workflow is functioning correctly, make a change to your repository and commit it to the main branch. This should trigger the workflow to run.
 
-```typescript
-import dotenv from "dotenv";
-import { envsafe, str } from "envsafe";
-import express from "express";
-import { CallProvider, Hamming } from "@hamming/hamming-sdk";
-
-
-dotenv.config();
-
-
-const app = express();
-app.use(express.json());
-
-
-export const env = envsafe({
- HAMMING_API_KEY: str(),
-});
-
-
-const hamming = new Hamming({
- apiKey: env.HAMMING_API_KEY,
-});
-
-
-hamming.monitoring.start();
-
-
-app.post("/retell-webhook", (req, res) => {
- hamming.monitoring.callEvent(CallProvider.Retell, req.body);
- res.sendStatus(200);
-});
-
-
-app.listen(3010, () => {
- console.log("Server is running on port 3010");
-});
-```
+<img src="./images/workflow-running-screen.png" alt="worfklow-running-screen" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
 
   </Step>
 
