@@ -1,4 +1,4 @@
-### Voice Agents Github Action Integration
+### Voice Agents Test Workflow Integration
 
 With GitHub Actions, you can now automatically run your Hamming test agents whenever changes are made to your GitHub repository's main branch. 
 You can easily set up actions for as many agents as you need by following a few simple steps.
@@ -7,12 +7,11 @@ You can easily set up actions for as many agents as you need by following a few 
 
 <Note> 
 
-You'll need to configure a voice agent before setting up a workflow. For a detailed walkthrough on how to set up a Hamming Test Agent follow [this tutorial] (https://docs.hamming.ai/guides/voice-agent). 
+You'll need to configure a Hamming Test Agent before setting up a workflow. For a detailed walkthrough on how to set up a Hamming Test Agent follow [this tutorial] (https://docs.hamming.ai/guides/voice-agent). 
 
 </Note>
 
 <Steps>
-
 
  <Step title="Configure Workflow on Github"
 
@@ -21,7 +20,7 @@ Then click on **Actions** at the top bar and select **Simple workflow** from the
 Paste the following code into the code area.
 
 
-```yml
+```
 # This is a basic workflow to help you get started with Actions
 
 name: Run Sam's Test Agent Workflow     #you can rename the workfow
