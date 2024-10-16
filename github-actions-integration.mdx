@@ -42,30 +42,34 @@ jobs:
 
 Your workflow should look like this and should be a .yml file.
 
- <img src="./images/ngrok-setup-screen.png" alt="ngrok" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
+ <img src="./images/workflow-setup.png" alt="workflow-setup" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
 
   </Step>
 
-<Step title="Configure your variables & secrets">
+<Step title="Configure your Variables & Secrets">
 
 Navigate to **Settings** to set up your repository variables (agent_id, dataset_id, to_number) and repository secrets (hamming api key). 
 Select **Security** from the left navigation bar and then select **Secrets and variables**.
 
 To find your agent_id check out this tutorial.
 To find your dataset_id check out this tutorial. 
+The TO_NUMBER should be the number you are AI Voice Agents number. 
 
-The TO_NUMBER should be the number you are AI Voice Agents nubmer. 
+Your final Variables Setup should look like this: 
 
-<Accordion icon="terminal" title="Finding Your Forwarding Link">
-<img src="./images/ngrok-setup-screen.png" alt="ngrok" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
+<div style={{ display: "flex", justifyContent: "space-between" }}>
+<img src="./images/final-variables-screen.png" alt="final-variables-screen" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
+<img src="./images/final-secrets-screen.png" alt="final-secrets-screen" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
+</div>
+
+
+<Accordion icon="terminal" title="Finding Secrets and Variables on Github">
+<div style={{ display: "flex", justifyContent: "space-between" }}>
+<img src="./images/security-screen.png" alt="security-screen" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
+<img src="./images/actions-secret-and-variables-screen.png" alt="actions-security-screen" style={{ width: "100%", height: "auto",borderRadius: "10px" }} />
+</div>
 </Accordion>
 
-
-
-Go to https://dashboard.retellai.com/agents and select your agent. Look for the **Webhook Settings** tab, and paste the link you created into the **Agent Level Webhook URL** field.
-
-
-<img src="./images/retell-webhook.png" alt="Retell Webhook" style={{width: "45%", height: "auto",borderRadius: "10px" }} />
 
   </Step>
 
