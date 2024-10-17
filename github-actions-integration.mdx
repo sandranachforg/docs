@@ -1,11 +1,8 @@
 ### Voice Agents Workflow Integration
 
-With GitHub Actions, you can now automatically run your Hamming test agents whenever you make changes to your GitHub repository's main branch. 
-You can easily set up workflows for as many agents as you need by following a few simple steps.
-
+With Github Actions, you can now automatically run your Hamming test agents whenever you push changes to your Github repository's main branch.
 
 ### Before You Get Started
-
 
 <Note> 
 
@@ -78,6 +75,11 @@ Your workflow should look like this:
 
 Navigate to your repository's **Settings** on Github to set up your repository variables (agent_id, dataset_id, to_number) and repository secrets (Hamming API Key). 
 Select **Security** from the left navigation bar and then select **Secrets and variables**.
+
+<Note>
+The **TO_NUMBER** should be your agent's number. This is the number Hamming's test agent will call when running the test.
+</Note>
+
 
 Your final variables and secrets setup should look like this:
 
